@@ -17,7 +17,7 @@ import {
 
 //imgUsed
 import IgniculussLogo from "./../../assets/images/IgniculussLogo.png";
-import CRMLoginPage from "./../../assets/images/CRMLoginPage.png";
+import crm from "./../../assets/images/crm.png";
 import Microsoft from "./../../assets/images/microsoft-logo.png";
 
 import { getHostnamePart } from "../SIDEBAR/SIDEBAR_SETTING/ReusableComponents/GlobalHostUrl";
@@ -328,7 +328,7 @@ export default function TenantLogin() {
   return (
     <>
       <ToastContainer />
-      <div className="flex min-h-screen flex-col bg-cyan-500 sm:bg-cyan-500 md:flex-row">
+      <div className="flex min-h-screen flex-col bg-slate-500 sm:bg-slate-900 md:flex-row">
         {/*----------> Part-I <---------- */}
         <div className="bg-cyan hidden min-h-screen w-2/3 flex-col items-center justify-center md:flex">
           <div className="flex flex-col items-center justify-center gap-2 rounded-md bg-white px-16 py-8">

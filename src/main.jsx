@@ -20,7 +20,7 @@ import TenantLoginOTP from "./Components/REGISTRATION/TenantLoginOTP.jsx";
 
 //Registration
 import Registration from "./Components/REGISTRATION/Registration.jsx";
-import Verifyotp from "./Components/REGISTRATION/Verifyotp.jsx";
+import RegistrationOTP from "./Components/REGISTRATION/RegistrationOTP.jsx";
 import VerifyTenant from "./Components/REGISTRATION/VerifyTenant.jsx";
 
 //Forget Password
@@ -139,7 +139,7 @@ const router = createBrowserRouter([
 
   //Registration
   { path: "/registration", element: <Registration /> },
-  { path: "/verifyotp/:userId", element: <Verifyotp /> },
+  { path: "/verifyotp/:userId", element: <RegistrationOTP /> },
   { path: "/welcome/:tenantId", element: <WelcomePage /> },
 
   //Forget Password

@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { main_base_url } from "./../../Config/config";
 
-import IgniculussLogo from "./../../assets/images/IgniculussLogo.png";
+import brandLogo from "./../../assets/images/brandLogo.png";
 import CRMRegistrationPage from "./../../assets/images/CRMRegistrationPage.png";
 
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
@@ -240,361 +240,355 @@ export default function Registration() {
   return (
     <>
       <ToastContainer />
-      <div className="flex min-h-screen flex-col bg-cyan-500 sm:bg-cyan-500 md:flex-row">
+      <div className="flex min-h-screen flex-col bg-gray-400 sm:bg-gray-400 md:flex-row">
         {/*----------> Part-I <---------- */}
-        <div className="bg-cyan hidden min-h-screen w-2/3 flex-col items-center justify-center md:flex">
-          <div className="flex flex-col items-center justify-center gap-2 rounded-md bg-white px-16 py-16">
-            <img src={IgniculussLogo} alt="Brandlogo" width={80} height={80} />
+        <div className=" hidden min-h-screen w-2/3 flex-col items-center justify-center md:flex ">
+          <div className="flex flex-col items-center justify-center gap-2 rounded-md bg-white py-20 px-4">
+            <img src={brandLogo} alt="Brandlogo" width={80} height={80} className="shadow-md rounded-full" />
             <img
               src={CRMRegistrationPage}
               alt="sample"
-              className="h-4/5 w-4/5"
+              className="w-4/6"
             />
-            <div className="flex text-3xl font-semibold">
-              <GiDiamonds className="text-cyan-500" />
-              <h1>Hello, Igniculuss</h1>
+            <div className="flex text-2xl font-semibold">
+              <GiDiamonds className="text-emerald-400 text-3xl" />
+              <h1>Register Yourself</h1>
             </div>
             <div>
-              <p className="text-center text-xs text-gray-400">
-                Skip repetitive and manual sales-marketing tasks. Get highly
-                <br />
-                productive through automation and save tons of time!
+              <p className="text-center text-sm text-gray-400">
+
+              Unlock the power of automation to deliver 
+                <br />precise stock insights, enhancing your advisory services
               </p>
             </div>
           </div>
         </div>
 
         {/*----------> Part-II <---------- */}
-        <div className="my-6 flex min-h-screen w-full flex-col justify-center overflow-hidden bg-cyan-500 md:my-0 md:w-1/3 md:bg-white">
-          {/* Image on Top for Small Screens */}
-          <div className="flex justify-center md:hidden">
-            <img src={IgniculussLogo} alt="sample" width={100} height={50} />
-          </div>
-
-          <div className="mx-10 mt-8 flex flex-col justify-center rounded-2xl bg-white px-3 py-3 md:mx-4">
-            <div className="flex items-center gap-3 text-2xl font-semibold">
-              <GiDiamonds className="hidden text-3xl hover:skew-x-12 md:block" />
-              <h1 className="">Create your Account</h1>
+        <div className="flex min-h-screen w-full flex-col justify-center bg-gray-400 md:w-1/3 md:bg-white ">
+          <div className="bg-white mx-10 py-6  my-10 rounded-md ">
+            <div className="flex justify-center md:hidden">
+              <img src={brandLogo} alt="Logo" className="w-3/12"  />
             </div>
 
-            <div className="mt-6">
-              {/*----------> FORM <---------- */}
-              <form
-                className="flex flex-col gap-3 rounded-md"
-                onSubmit={handleSubmit}
-              >
-                {/*----------> First-Name <---------- */}
-                <label
-                  htmlFor="firstName"
-                  className="text-xs font-medium text-gray-700"
-                >
-                  <span className="flex gap-1">
-                    First Name
-                    <FaStarOfLife size={7} className="text-red-500" />
-                  </span>
-                  <input
-                    type="text"
-                    name="firstName"
-                    className="mt-1 flex w-full justify-between rounded-md border border-gray-300 px-2 py-2 text-sm outline-none"
-                    value={formValues.firstName}
-                    onChange={handleChange}
-                    placeholder="John"
-                  />
-                </label>
-                {/*----------> Last-Name <---------- */}
-                <label
-                  htmlFor="lastName"
-                  className="text-xs font-medium text-gray-700"
-                >
-                  <span className="flex gap-1">
-                    Last Name
-                    <FaStarOfLife size={7} className="text-red-500" />
-                  </span>
-                  <input
-                    type="text"
-                    name="lastName"
-                    className="mt-1 flex w-full justify-between rounded-md border border-gray-300 px-2 py-2 text-sm outline-none"
-                    value={formValues.lastName}
-                    onChange={handleChange}
-                    placeholder="Mark"
-                  />
-                </label>
+            <div className="flex flex-col justify-center rounded-2xl bg-white px-3 py-3 md:mx-4 mx-6">
+              <div className="flex items-center gap-3 text-2xl font-semibold">
+                <GiDiamonds className=" text-3xl rounded-full bg-gray-700  p-1 mt-1 md:block text-emerald-400 " />
+                <h1 className="">Create your Account</h1>
+              </div>
 
-                {/*----------> Email <---------- */}
-                <label
-                  htmlFor="email"
-                  className="text-xs font-medium text-gray-700"
+              <div className="mt-6">
+                {/*----------> FORM <---------- */}
+                <form
+                  className="flex flex-col gap-3 rounded-md"
+                  onSubmit={handleSubmit}
                 >
-                  <span className="flex gap-1">
-                    Email
-                    <FaStarOfLife size={7} className="text-red-500" />
-                  </span>
-                  <input
-                    type="email"
-                    name="email"
-                    className="mt-1 flex w-full justify-between rounded-md border border-gray-300 px-2 py-2 text-sm outline-none"
-                    value={formValues.email}
-                    onChange={handleChange}
-                    placeholder="specimen@company.com"
-                  />
-                </label>
-
-                {/*---------->Password<---------- */}
-                <label
-                  htmlFor="password"
-                  className="relative block text-xs font-medium text-gray-700"
-                >
-                  <span className="flex gap-1">
-                    Password
-                    <FaStarOfLife size={7} className="text-red-500" />
-                  </span>
-
-                  <input
-                    type={passwordEye ? "text" : "password"}
-                    name="password"
-                    className="mt-1 flex w-full justify-between rounded-md border border-gray-300 px-2 py-2 text-sm outline-none"
-                    value={formValues.password}
-                    onChange={handleChange}
-                    placeholder="********"
-                  />
-                  <button
-                    type="button"
-                    onClick={togglePasswordEye}
-                    className="absolute inset-y-0 right-2 top-5 flex items-center text-gray-500 transition-opacity duration-300 ease-in-out"
+                  {/*----------> First-Name <---------- */}
+                  <label
+                    htmlFor="firstName"
+                    className="text-xs font-medium text-slate-900"
                   >
-                    {passwordEye ? (
-                      <IoIosEye
-                        size={22}
-                        className={`transition-opacity duration-300 ease-in-out ${
-                          passwordEye ? "opacity-100" : "opacity-0"
-                        }`}
-                      />
-                    ) : (
-                      <IoIosEyeOff
-                        size={22}
-                        className={`transition-opacity duration-300 ease-in-out ${
-                          passwordEye ? "opacity-0" : "opacity-100"
-                        }`}
-                      />
-                    )}
-                  </button>
-                </label>
-
-                {/*---------->Confirm Password<---------- */}
-                <label
-                  htmlFor="confirmPassword"
-                  className="relative block text-xs font-medium text-gray-700"
-                >
-                  <span className="flex gap-1">
-                    Confirm Password
-                    <FaStarOfLife size={7} className="text-red-500" />
-                  </span>
-
-                  <input
-                    type={confirmPasswordEye ? "text" : "password"}
-                    name="confirmPassword"
-                    className="mt-1 w-full rounded-md border border-gray-300 px-2 py-2 text-sm outline-none"
-                    value={formValues.confirmPassword}
-                    onChange={handleChange}
-                    placeholder="********"
-                  />
-                  <button
-                    type="button"
-                    onClick={toggleConfirmPasswordEye}
-                    className="absolute inset-y-0 right-2 top-5 flex items-center text-gray-500 transition-opacity duration-300 ease-in-out"
-                  >
-                    {confirmPasswordEye ? (
-                      <IoIosEye
-                        size={22}
-                        className={`transition-opacity duration-300 ease-in-out ${
-                          confirmPasswordEye ? "opacity-100" : "opacity-0"
-                        }`}
-                      />
-                    ) : (
-                      <IoIosEyeOff
-                        size={22}
-                        className={`transition-opacity duration-300 ease-in-out ${
-                          confirmPasswordEye ? "opacity-0" : "opacity-100"
-                        }`}
-                      />
-                    )}
-                  </button>
-                </label>
-
-                {/*----------> Contact No <---------- */}
-                <label
-                  htmlFor="Contact"
-                  className="text-xs font-medium text-gray-700"
-                >
-                  <span className="flex gap-1">
-                    Contact
-                    <FaStarOfLife size={7} className="text-red-500" />
-                  </span>
-                  <div className="flex items-center rounded-md border">
-                    <div className="w-28 text-xs">
-                      <button
-                        type="button"
-                        onClick={toggleDropdown}
-                        className="rounded bg-white px-4 py-2"
-                      >
-                        {selectedCode ? (
-                          <div className="flex items-center">
-                            <img
-                              src={selectedCode.img}
-                              alt="flag"
-                              className="mr-2 h-4 w-6"
-                              onError={(e) => (e.target.style.display = "none")} // Hides image if not found
-                            />
-                            {selectedCode.label}
-                          </div>
-                        ) : (
-                          <div className="w-10">Country Code</div>
-                        )}
-                      </button>
-
-                      {isOpen && (
-                        <div className="code absolute z-10 h-48 w-96 overflow-y-scroll rounded border bg-white shadow-lg">
-                          <input
-                            type="text"
-                            placeholder="Search Country"
-                            value={searchQueryCode}
-                            onChange={(e) => setSearchQueryCode(e.target.value)}
-                            className="w-full border-b px-4 py-2 outline-none"
-                          />
-                          {filteredCountryCodes.map((code, index) => (
-                            <div
-                              key={index}
-                              onClick={() => handleSelect(code)}
-                              className="flex cursor-pointer items-center px-4 py-2 hover:bg-gray-100"
-                            >
-                              <img
-                                src={code.img}
-                                alt="flag"
-                                className="mr-2 h-4 w-6"
-                                onError={(e) =>
-                                  (e.target.style.display = "none")
-                                } // Hides image if not found
-                              />
-                              {code.label} - {code.countryName}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                    <span className="flex gap-1">
+                      First Name
+                      <FaStarOfLife size={7} className="text-red-400" />
+                    </span>
                     <input
                       type="text"
-                      name="contactNo"
-                      value={formValues.contactNo}
+                      name="firstName"
+                      className="mt-1 flex w-full justify-between rounded-md border border-gray-400 px-2 py-2 text-sm outline-none"
+                      value={formValues.firstName}
                       onChange={handleChange}
-                      className="mt-1 flex w-full justify-between rounded-md px-2 py-2 text-sm outline-none"
-                      placeholder="Alternate Number"
+                      placeholder="John"
                     />
-                  </div>
-                </label>
+                  </label>
+                  {/*----------> Last-Name <---------- */}
+                  <label
+                    htmlFor="lastName"
+                    className="text-xs font-medium text-slate-900"
+                  >
+                    <span className="flex gap-1">
+                      Last Name
+                      <FaStarOfLife size={7} className="text-red-400" />
+                    </span>
+                    <input
+                      type="text"
+                      name="lastName"
+                      className="mt-1 flex w-full justify-between rounded-md border border-gray-400 px-2 py-2 text-sm outline-none"
+                      value={formValues.lastName}
+                      onChange={handleChange}
+                      placeholder="Mark"
+                    />
+                  </label>
 
-                {/*----------> Country Selection <---------- */}
-                <label
-                  htmlFor="country"
-                  className="text-xs font-medium text-gray-700"
-                >
-                  <span className="flex gap-1">
-                    Country
-                    <FaStarOfLife size={7} className="text-red-500" />
-                  </span>
-                  <div className="flex items-center rounded-md border">
-                    <div className="relative w-full items-center justify-center">
-                      <button
-                        type="button"
-                        onClick={toggleDropdownCountry}
-                        className="w-full rounded bg-white px-4 py-2"
-                      >
-                        {selectedCountry ? (
-                          <div className="flex">
-                            <img
-                              src={selectedCountry.img}
-                              alt="flag"
-                              className="mr-2 h-4 w-6"
-                              onError={(e) => (e.target.style.display = "none")} // Hides image if not found
-                            />
-                            {selectedCountry.countryName}
-                          </div>
-                        ) : (
-                          <div className="text-ms flex justify-between font-medium text-gray-400">
-                            Select Country <FaChevronDown />{" "}
-                          </div>
-                        )}
-                      </button>
+                  {/*----------> Email <---------- */}
+                  <label
+                    htmlFor="email"
+                    className="text-xs font-medium text-slate-900"
+                  >
+                    <span className="flex gap-1">
+                      Email
+                      <FaStarOfLife size={7} className="text-red-400" />
+                    </span>
+                    <input
+                      type="email"
+                      name="email"
+                      className="mt-1 flex w-full justify-between rounded-md border border-gray-400 px-2 py-2 text-sm outline-none"
+                      value={formValues.email}
+                      onChange={handleChange}
+                      placeholder="specimen@company.com"
+                    />
+                  </label>
 
-                      {isOpenCountry && (
-                        <div className="absolute z-10 h-36 w-full overflow-y-scroll rounded border bg-white shadow-lg">
-                          <input
-                            type="text"
-                            placeholder="Search Country"
-                            value={searchQueryCountry}
-                            onChange={(e) =>
-                              setSearchQueryCountry(e.target.value)
-                            }
-                            className="w-full border-b px-8 py-2 outline-none"
-                          />
-                          {filteredCountries.map((code, index) => (
-                            <div
-                              key={index}
-                              onClick={() => handleCountrySelect(code)}
-                              className="flex w-full cursor-pointer px-4 py-2 hover:bg-gray-100"
-                            >
+                  {/*---------->Password<---------- */}
+                  <label
+                    htmlFor="password"
+                    className="relative block text-xs font-medium text-slate-900"
+                  >
+                    <span className="flex gap-1">
+                      Password
+                      <FaStarOfLife size={7} className="text-red-400" />
+                    </span>
+
+                    <input
+                      type={passwordEye ? "text" : "password"}
+                      name="password"
+                      className="mt-1 flex w-full justify-between rounded-md border border-gray-400 px-2 py-2 text-sm outline-none"
+                      value={formValues.password}
+                      onChange={handleChange}
+                      placeholder="********"
+                    />
+                    <button
+                      type="button"
+                      onClick={togglePasswordEye}
+                      className="absolute inset-y-0 right-2 top-5 flex items-center text-gray-500 transition-opacity duration-300 ease-in-out"
+                    >
+                      {passwordEye ? (
+                        <IoIosEye
+                          size={22}
+                          className={`transition-opacity duration-300 ease-in-out ${passwordEye ? "opacity-100" : "opacity-0"
+                            }`}
+                        />
+                      ) : (
+                        <IoIosEyeOff
+                          size={22}
+                          className={`transition-opacity duration-300 ease-in-out ${passwordEye ? "opacity-0" : "opacity-100"
+                            }`}
+                        />
+                      )}
+                    </button>
+                  </label>
+
+                  {/*---------->Confirm Password<---------- */}
+                  <label
+                    htmlFor="confirmPassword"
+                    className="relative block text-xs font-medium text-slate-900"
+                  >
+                    <span className="flex gap-1">
+                      Confirm Password
+                      <FaStarOfLife size={7} className="text-red-400" />
+                    </span>
+
+                    <input
+                      type={confirmPasswordEye ? "text" : "password"}
+                      name="confirmPassword"
+                      className="mt-1 w-full rounded-md border border-gray-400 px-2 py-2 text-sm outline-none"
+                      value={formValues.confirmPassword}
+                      onChange={handleChange}
+                      placeholder="********"
+                    />
+                    <button
+                      type="button"
+                      onClick={toggleConfirmPasswordEye}
+                      className="absolute inset-y-0 right-2 top-5 flex items-center text-gray-500 transition-opacity duration-300 ease-in-out"
+                    >
+                      {confirmPasswordEye ? (
+                        <IoIosEye
+                          size={22}
+                          className={`transition-opacity duration-300 ease-in-out ${confirmPasswordEye ? "opacity-100" : "opacity-0"
+                            }`}
+                        />
+                      ) : (
+                        <IoIosEyeOff
+                          size={22}
+                          className={`transition-opacity duration-300 ease-in-out ${confirmPasswordEye ? "opacity-0" : "opacity-100"
+                            }`}
+                        />
+                      )}
+                    </button>
+                  </label>
+
+                  {/*----------> Contact No <---------- */}
+                  <label
+                    htmlFor="Contact"
+                    className="text-xs font-medium text-slate-900"
+                  >
+                    <span className="flex gap-1">
+                      Contact
+                      <FaStarOfLife size={7} className="text-red-400" />
+                    </span>
+                    <div className="flex items-center rounded-md border border-gray-400">
+                      <div className="w-28 text-xs">
+                        <button
+                          type="button"
+                          onClick={toggleDropdown}
+                          className="rounded bg-white px-4 py-2"
+                        >
+                          {selectedCode ? (
+                            <div className="flex items-center">
                               <img
-                                src={code.img}
+                                src={selectedCode.img}
                                 alt="flag"
                                 className="mr-2 h-4 w-6"
-                                onError={(e) =>
-                                  (e.target.style.display = "none")
-                                } // Hides image if not found
+                                onError={(e) => (e.target.style.display = "none")} // Hides image if not found
                               />
-                              {code.countryName}
+                              {selectedCode.label}
                             </div>
-                          ))}
-                        </div>
-                      )}
+                          ) : (
+                            <div className="w-10">Country Code</div>
+                          )}
+                        </button>
+
+                        {isOpen && (
+                          <div className="code absolute z-10 h-48 w-96 overflow-y-scroll rounded border bg-white shadow-lg">
+                            <input
+                              type="text"
+                              placeholder="Search Country"
+                              value={searchQueryCode}
+                              onChange={(e) => setSearchQueryCode(e.target.value)}
+                              className="w-full border-b px-4 py-2 outline-none"
+                            />
+                            {filteredCountryCodes.map((code, index) => (
+                              <div
+                                key={index}
+                                onClick={() => handleSelect(code)}
+                                className="flex cursor-pointer items-center px-4 py-2 hover:bg-gray-100"
+                              >
+                                <img
+                                  src={code.img}
+                                  alt="flag"
+                                  className="mr-2 h-4 w-6"
+                                  onError={(e) =>
+                                    (e.target.style.display = "none")
+                                  } // Hides image if not found
+                                />
+                                {code.label} - {code.countryName}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        name="contactNo"
+                        value={formValues.contactNo}
+                        onChange={handleChange}
+                        className="mt-1 flex w-full justify-between rounded-md px-2 py-2 text-sm outline-none"
+                        placeholder="Alternate Number"
+                      />
                     </div>
-                  </div>
-                </label>
+                  </label>
 
-                {/*----------> Business Selection <---------- */}
-
-                <label
-                  htmlFor="confirmPassword"
-                  className="text-xs font-medium text-gray-700"
-                >
-                  <span className="flex gap-1">
-                    Select Business
-                    <FaStarOfLife size={7} className="text-red-500" />
-                  </span>
-                  <select
-                    id="businessInput"
-                    name="businessType"
-                    value={formValues.businessType}
-                    onChange={handleChange}
-                    className="mt-1 flex w-full justify-between rounded-md border border-gray-300 px-2 py-2 text-sm outline-none"
+                  {/*----------> Country Selection <---------- */}
+                  <label
+                    htmlFor="country"
+                    className="text-xs font-medium text-slate-900"
                   >
-                    <option value="" disabled>
-                      Select Business Type
-                    </option>
-                    <option value="Advisory">Advisory</option>
-                    <option value="Brokerage">Brokerage</option>
-                    <option value="IT">IT</option>
-                    <option value="Retail">Retail</option>
-                    <option value="Ecommerce">Ecommerce</option>
-                  </select>
-                </label>
+                    <span className="flex gap-1">
+                      Country
+                      <FaStarOfLife size={7} className="text-red-400" />
+                    </span>
+                    <div className="flex items-center rounded-md border  border-gray-400">
+                      <div className="relative w-full items-center justify-center">
+                        <button
+                          type="button"
+                          onClick={toggleDropdownCountry}
+                          className="w-full rounded bg-white px-4 py-2"
+                        >
+                          {selectedCountry ? (
+                            <div className="flex">
+                              <img
+                                src={selectedCountry.img}
+                                alt="flag"
+                                className="mr-2 h-4 w-6"
+                                onError={(e) => (e.target.style.display = "none")} // Hides image if not found
+                              />
+                              {selectedCountry.countryName}
+                            </div>
+                          ) : (
+                            <div className="text-ms flex justify-between font-medium text-gray-400">
+                              Select Country <FaChevronDown />{" "}
+                            </div>
+                          )}
+                        </button>
 
-                <button className="mt-4 rounded-md bg-cyan-500 py-4 text-xs font-bold text-white outline-none">
-                  Submit
-                </button>
-              </form>
+                        {isOpenCountry && (
+                          <div className="absolute z-10 h-36 w-full overflow-y-scroll rounded border bg-white shadow-lg">
+                            <input
+                              type="text"
+                              placeholder="Search Country"
+                              value={searchQueryCountry}
+                              onChange={(e) =>
+                                setSearchQueryCountry(e.target.value)
+                              }
+                              className="w-full border-b px-8 py-2 outline-none"
+                            />
+                            {filteredCountries.map((code, index) => (
+                              <div
+                                key={index}
+                                onClick={() => handleCountrySelect(code)}
+                                className="flex w-full cursor-pointer px-4 py-2 hover:bg-gray-100"
+                              >
+                                <img
+                                  src={code.img}
+                                  alt="flag"
+                                  className="mr-2 h-4 w-6"
+                                  onError={(e) =>
+                                    (e.target.style.display = "none")
+                                  } // Hides image if not found
+                                />
+                                {code.countryName}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </label>
+
+                  {/*----------> Business Selection <---------- */}
+
+                  <label
+                    htmlFor="confirmPassword"
+                    className="text-xs font-medium text-slate-900"
+                  >
+                    <span className="flex gap-1">
+                      Select Business
+                      <FaStarOfLife size={7} className="text-red-400" />
+                    </span>
+                    <select
+                      id="businessInput"
+                      name="businessType"
+                      value={formValues.businessType}
+                      onChange={handleChange}
+                      className="mt-1 flex w-full justify-between rounded-md border border-gray-400 px-2 py-2 text-sm outline-none"
+                    >
+                      <option value="" disabled>
+                        Select Business Type
+                      </option>
+                      <option value="Advisory">Advisory</option>
+                      <option value="Brokerage">Brokerage</option>
+                    </select>
+                  </label>
+                  <button 
+                  className="mt-4 rounded-md  py-4 text-xs font-bold text-slate-900 border-2 border-slate-900 outline-none hover:shadow-md">
+                    Submit
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+      );
 }

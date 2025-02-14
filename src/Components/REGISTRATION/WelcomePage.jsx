@@ -3,8 +3,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 import { main_base_url } from "./../../Config/config";
-import welcomePageLeft from "./../../assets/images/welcomePageLeft.png";
-import welcomePageRight from "./../../assets/images/welcomePageRight.png";
+
+
+import { TbRosetteDiscountCheckFilled } from "react-icons/tb";
+import { GiDiamonds } from "react-icons/gi";
+
+
+import WelcomeResponsive from "./../../assets/images/WelcomeResponsive.png";
 
 const WelcomePage = () => {
   const navigate = useNavigate();
@@ -54,47 +59,39 @@ const WelcomePage = () => {
   }, [tenantId]); // Fetch data when tenantId changes
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-cyan-500">
-      <div className="mx-6 w-full rounded-3xl bg-white py-10 shadow-lg sm:w-2/3 lg:w-1/3">
+    <div className="flex min-h-screen items-center justify-center bg-gray-400">
+      <div className="mx-6  w-full rounded-3xl bg-white py-6 shadow-lg sm:w-2/3 lg:w-1/3">
         <div className="relative w-full">
-          <div className="absolute left-0 top-8 w-16 md:w-24">
-            <img src={welcomePageLeft} alt="Decoration" />
+          <div className="flex justify-center ">
+            <div className="flex gap-2 items-center text-xl font-extrabold text-slate-900  sm:text-2xl relative">
+               
+
+              Registration Successful! 
+              <TbRosetteDiscountCheckFilled className="text-emerald-400"/>
+              <TbRosetteDiscountCheckFilled className="absolute right-0 text-emerald-600  animate-ping"/>
+            </div>
           </div>
-          <div className="absolute right-0 top-32 w-16 md:w-24">
-            <img src={welcomePageRight} alt="Decoration" />
-          </div>
+            <img src= {WelcomeResponsive} width={400} className="mx-auto"/>
 
           <div className="">
-            <img
-              id="logoImg"
-              src={welcomedata.tenantUrl}
-              alt="Company Logo"
-              className="mx-auto h-28 w-28 rounded-full"
-            />
-          </div>
-          <div className="flex justify-center pt-12">
-            <div className="text-3xl font-extrabold text-cyan-500 sm:text-5xl">
-              Welcome
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <div className="py-2 text-center text-lg text-slate-900">
-              {welcomedata.firstName} {welcomedata.lastName}
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <div className="pb-2 pt-2 text-center text-slate-900">
-              {welcomedata.tenantName}
-            </div>
-          </div>
-          <div className="flex items-center justify-center">
+           
+
+          <p  className="text-slate-900 mx-4 indent-6 italic">
+            Welcome to the hassle-free, responsive Advisory CRM – designed
+             to simplify your client management and streamline your advisory services.
+            </p>
+          
+          <div className="flex items-center justify-center mt-3">
             <button
               onClick={handleClick}
-              className="hover:bg-cyan- mx-10 w-2/3 rounded-md bg-cyan-500 py-2 font-medium text-white"
-            >
-              Get Started
+              className="mx-4 w-full rounded-md  py-4 text-xs font-bold text-slate-900 border-2 border-slate-900 outline-none hover:shadow-md">
+
+              Let's Get Started, {welcomedata.firstName}{" "}{welcomedata.lastName}
+          
             </button>
           </div>
+        
+        </div>
         </div>
       </div>
     </div>

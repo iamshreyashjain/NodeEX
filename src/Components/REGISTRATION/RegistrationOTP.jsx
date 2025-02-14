@@ -5,22 +5,31 @@ import {
   main_base_url,
   localBase,
   urlchange_base,
-} from "./../../Config/config";
+} from "../../Config/config";
 
 //images
-import VerifyOTP from "./../../assets/images/verifyOTP.png";
-import companyUploadIMG from "./../../assets/images/companyUploadIMG.png";
-import IgniculussLogo from "./../../assets/images/IgniculussLogo.png";
-import { GiDiamonds } from "react-icons/gi";
 
+import companyUploadIMG from "./../../assets/images/companyUploadIMG.png";
+import brandLogo from "./../../assets/images/brandLogo.png";
+import CRMRegistrationPage from "./../../assets/images/CRMRegistrationPage.png";
+
+
+//icons
+import { MdOutlineCloudUpload } from "react-icons/md";
+import { GiDiamonds } from "react-icons/gi";
 import { ToastContainer } from "react-toastify";
+import { IoMailUnreadOutline } from "react-icons/io5";
+import { ImCancelCircle } from "react-icons/im";
+
+
 import "react-toastify/dist/ReactToastify.css";
 import {
   showSuccessToast,
   showErrorToast,
-} from "./../../utils/toastNotifications";
+} from "../../utils/toastNotifications";
+import { FaStarOfLife } from "react-icons/fa";
 
-const VerifyOtp = () => {
+const RegistrationOTP = () => {
   const { userId } = useParams();
   const [otp, setOtp] = useState("");
 
@@ -194,11 +203,11 @@ const VerifyOtp = () => {
         />
       )}
 
-      <div className="flex min-h-screen items-center justify-center bg-cyan-500">
+      <div className="flex min-h-screen items-center justify-center bg-gray-400">
         <div className="hidden w-2/3 items-center justify-center md:flex">
           <WelcomeSection />
         </div>
-        <div className="bg-cyan flex min-h-screen w-full items-center justify-center md:w-1/3 md:bg-white">
+        <div className="flex min-h-screen w-full items-center justify-center md:w-1/3 md:bg-white">
           <OtpForm
             otp={otp}
             setOtp={setOtp}
@@ -214,27 +223,30 @@ const VerifyOtp = () => {
   );
 };
 
+
+{/*----------> CONTROLLER <---------- */ }
 const WelcomeSection = () => (
-  <div className="flex flex-col bg-cyan-500 md:flex-row">
-    <div className="bg-cyan hidden flex-col items-center justify-center md:flex">
-      <div className="flex flex-col justify-center gap-2 rounded-md bg-white px-6 py-12">
+  <div className="flex min-h-screen flex-col bg-gray-400 sm:bg-gray-400 md:flex-row">
+    <div className=" hidden min-h-screen flex-col items-center justify-center md:flex ">
+      <div className="flex flex-col items-center justify-center gap-2 rounded-md bg-white py-6 px-20">
         <img
-          src={IgniculussLogo}
+          src={brandLogo}
           alt="Brandlogo"
           width={80}
           height={80}
-          className="mx-auto"
-        />
-        <img src={VerifyOTP} alt="sample" className="mx-auto h-2/3 w-3/4" />
-        <div className="flex justify-center text-3xl font-semibold">
-          <GiDiamonds className="place-content-start text-cyan-500" />
-          <h1 className="">Hello, Igniculuss</h1>
+          className="shadow-md rounded-full" />
+
+        <img src={CRMRegistrationPage} alt="sample" width={330} />
+        <div className="flex text-2xl font-semibold">
+          <GiDiamonds className="text-emerald-400 text-3xl" />
+          <h1>You're Just One Step Ahead</h1>
         </div>
         <div>
-          <p className="text-center text-xs text-gray-400">
-            Skip repetitive and manual sales-marketing tasks. Get highly
+          <p className="text-center text-sm text-gray-400">
+
+            Maximize the potential of your advisory services with
             <br />
-            productive through automation and save tons of time!
+            automation that scales and adapts to market changes.
           </p>
         </div>
       </div>
@@ -251,43 +263,37 @@ const OtpForm = ({
   handleSubmit,
   emailreg,
 }) => (
-  <div className="md:w-3/3 flex min-h-screen w-full flex-col justify-center bg-cyan-500 md:bg-white">
+  <div className="md:w-3/3 flex min-h-screen w-full flex-col justify-center bg-gray-400 md:bg-white">
+    <div className="bg-white mx-6 rounded-md py-3"> 
     <div className="flex justify-center md:hidden">
-      <img src={IgniculussLogo} alt="sample" width={100} height={50} />
+      <img src={brandLogo} alt="sample" width={100} height={50} />
     </div>
     <div className="mx-10 mt-8 flex flex-col justify-center rounded-2xl bg-white px-3 py-3 md:mx-4">
       <div className="flex items-center gap-3 text-2xl font-semibold">
-        <GiDiamonds className="hidden text-3xl md:block" />
-        <h1 className="">Verify your Sign-up</h1>
+        <GiDiamonds className=" text-3xl rounded-full bg-gray-700  p-1 mt-1 md:block text-emerald-400 " />
+        <h1 className="">Verify your One Time Password</h1>
       </div>
 
-      <div className="text-sm text-slate-900">
-        Enter the one-time password sent to your Email ID.
-      </div>
+
 
       <div className="mt-8 md:mt-16">
         <form onSubmit={handleSubmit} className="flex flex-col">
-          <div className="mb-2 flex justify-between">
+          <div className="mb-2 flex gap-2 items-center">
+            < IoMailUnreadOutline size={20} />
             <span>{emailreg}</span>
-            {/* Change button on email 
-            <Link to="/" className="text-sm underline text-cyan-500">
-              Change
-            </Link>
-            */}
           </div>
           <input
             type="number"
-            className="h-10 rounded-md border px-3 text-xs focus:outline-none"
-            placeholder="XXX XXX"
+            className="h-10 rounded-md border px-3 text-sm focus:outline-none border-gray-400"
+            placeholder="XXXXXX"
             maxLength={6}
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
           />
           <div className="mt-3 flex items-center justify-between">
             <div
-              className={`cursor-pointer text-left text-sm text-slate-900 ${
-                resendDisabled ? "cursor-not-allowed opacity-50" : ""
-              }`}
+              className={`cursor-pointer text-left text-sm text-slate-900 ${resendDisabled ? "cursor-not-allowed opacity-50" : "text-emerald-400 underline"
+                }`}
               onClick={!resendDisabled ? handleResend : null}
             >
               {resendDisabled ? `Resend in ${countdown}s` : "Resend"}
@@ -297,16 +303,19 @@ const OtpForm = ({
           <div className="mt-12">
             <button
               type="submit"
-              className="w-full rounded-lg bg-cyan-500 py-3 text-sm text-white"
-            >
+              className="mt-4 w-full rounded-md  py-4 text-xs font-bold text-slate-900 border-2 border-slate-900 outline-none hover:shadow-md">
               Verify
             </button>
           </div>
         </form>
       </div>
     </div>
+    </div>
   </div>
 );
+
+
+{/* COMPANY DETAILS FORMS */ }
 
 const Modal = ({
   companyName,
@@ -317,16 +326,18 @@ const Modal = ({
   handleUpload,
   toggleModal,
 }) => (
-  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70">
     {/*Change padding form here */}
-    <div className="mx-10 w-full rounded-lg bg-white p-12 md:w-2/3 lg:w-1/3">
-      <div className="sm:text-2-xl mb-4 flex text-center text-xl font-semibold">
-        <span className="cursor-default text-gray-400" onClick={toggleModal}>
-          {" "}
-          X{" "}
-        </span>
-        <span className="mx-auto">Add Compnay Logo </span>
+    <div className=" w-full mx-8 rounded-lg bg-white py-6 px-8 md:w-2/3 lg:w-1/3">
+      <div className="sm:text-2-xl  flex  items-center">
+
+        <ImCancelCircle onClick={toggleModal}
+          className="text-red-400 text-xl rounded-full hover:shadow-md"
+        />
+        <span className="mx-auto">Upload Compnay Logo Here </span>
       </div>
+        
+
       <form
         onSubmit={handleUpload}
         className="flex flex-col items-center gap-6"
@@ -339,38 +350,50 @@ const Modal = ({
             accept="image/*"
             hidden
           />
-          <img
-            id="profileImage"
-            src={
-              base64Image
-                ? `data:image/png;base64,${base64Image}`
-                : companyUploadIMG
-            }
-            alt="Profile"
-            onClick={handleImageClick}
-            className="mx-auto h-24 w-24 cursor-pointer rounded-full border text-center"
-          />
-          <p className="text-center text-xs text-gray-500">
-            Supported formates: JPEG, PNG
-          </p>
+         <div className="sm:text-2xl flex items-center">
+  {!base64Image && !companyUploadIMG ? (
+    // When no image is uploaded, show the upload icon and text
+    <MdOutlineCloudUpload
+      onClick={handleImageClick}
+      className="mx-auto rounded-full border-b-2 shadow-sm border-gray-300 p-3 text-emerald-300 hover:shadow-md"
+      size={90}
+    />
+  ) : (
+    // When image is uploaded, show the uploaded company logo
+    <img
+      id="profileImage"
+      src={companyUploadIMG} // Only show the company upload image
+      alt="Company Logo"
+      onClick={handleImageClick}
+      className="mx-auto w-24 p-2 rounded-full border-b hover:shadow-sm border-gray-300 text-center"
+    />
+  )}
+</div>
+
+
+
+          <div className="text-center text-sm  text-slate-900">
+            Formtes : JPEG / PNG
+          </div>
           <label
             htmlFor="companyName"
-            className="text-md font-medium text-gray-700"
+            className="text-sm font-medium text-gray-700"
           >
-            Company Name
+            <span className="flex gap-1">
+              Registered Company Name
+              <FaStarOfLife size={7} className="text-red-400" />
+            </span>
             <input
               type="text"
-              placeholder="Company Name"
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
-              className="mb-4 w-full rounded-md border p-2"
+              className="mb-4 w-full rounded-md border p-2 outline-none border-gray-400 mt-1"
             />
           </label>
         </div>
         <button
           type="submit"
-          className="w-full rounded-lg bg-cyan-500 px-4 py-4 text-white"
-        >
+          className="w-full  rounded-md  py-4 text-xs font-bold text-slate-900 border-2 border-slate-900 outline-none hover:shadow-md">
           Submit
         </button>
       </form>
@@ -378,4 +401,4 @@ const Modal = ({
   </div>
 );
 
-export default VerifyOtp;
+export default RegistrationOTP;
