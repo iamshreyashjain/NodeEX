@@ -16,10 +16,13 @@ import { VscGraph } from "react-icons/vsc";
 import { FaRegHandshake } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import PropTypes from "prop-types";
-import noAvatar from "../../assets/images/noAvatar.png";
+
 import { GiProgression } from "react-icons/gi";
 
 import { getHostnamePart } from "./SIDEBAR_SETTING/ReusableComponents/GlobalHostUrl";
+
+
+import brandLogo from "./../../assets/images/brandLogo.png";
 
 //file_Imported
 import { main_base_url } from "./../../Config/config";
@@ -264,7 +267,7 @@ export default function SidebaBar({ toggle, setToggle }) {
           <div className="sticky top-0 mt-4">
             <img
               id="logoImg"
-              src={welcomedata?.tenentLogo || noAvatar}
+              src={welcomedata?.tenentLogo}
               alt="Company Image"
               className={`mt-3 ${toggle ? "h-14 w-14" : "h-20 w-20"} mx-auto rounded-full border object-cover shadow-md shadow-cyan-600`}
             />

@@ -6,7 +6,7 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 
 import forgetPassword from "./../../assets/images/forgetPassword.png";
-import IgniculussLogo from "./../../assets/images/IgniculussLogo.png";
+import brandLogo from "./../../assets/images/brandLogo.png";
 
 import { main_base_url } from "./../../Config/config";
 import { GiDiamonds } from "react-icons/gi";
@@ -124,7 +124,7 @@ export default function TenantLoginOTP() {
       <div className="flex min-h-screen flex-col bg-cyan-500 md:flex-row">
         <div className="bg-cyan hidden min-h-screen w-2/3 flex-col items-center justify-center md:flex">
           <div className="flex flex-col items-center justify-center gap-2 rounded-md bg-white px-16 py-10">
-            <img src={IgniculussLogo} alt="Brandlogo" width={80} height={80} />
+            <img src={brandLogo} alt="Brandlogo" width={80} height={80} />
             <img src={forgetPassword} alt="sample" width={300} height={150} />
             <div className="flex text-3xl font-semibold">
               <GiDiamonds className="mt-1 text-cyan-500" />
@@ -145,7 +145,7 @@ export default function TenantLoginOTP() {
 
         <div className="flex min-h-screen w-full flex-col justify-center bg-cyan-500 md:w-1/3 md:bg-white">
           <div className="flex justify-center md:hidden">
-            <img src={IgniculussLogo} alt="sample" width={100} height={50} />
+            <img src={brandLogo} alt="sample" width={100} height={50} />
           </div>
 
           <div className="mx-10 mt-8 flex flex-col justify-center rounded-2xl bg-white px-3 py-3 md:mx-4">

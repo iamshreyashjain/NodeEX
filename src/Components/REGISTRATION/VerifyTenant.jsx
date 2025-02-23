@@ -20,7 +20,6 @@ import {
 } from "../../utils/toastNotifications";
 
 //imgUsed
-
 import brandLogo from "./../../assets/images/brandLogo.png";
 
 import crm from "./../../assets/images/crm.png";
